@@ -1,0 +1,7 @@
+{
+  "version": "0.2.9",
+  "sha256": {
+    "connect.mjs": "656de53f1c406aef22c92dc66f6ef40c3f97f43fd1f529c0378b5e22579284d2",
+    "sync.mjs": "1ece69b0af0429287a921ad524ef9c188f50a262e6127000fcfa05d18d3a696a"
+  }
+}
