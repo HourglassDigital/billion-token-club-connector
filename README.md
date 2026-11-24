@@ -37,6 +37,8 @@ The terminal then opens (or prints, on a machine with no display) a link to sign
 - a **machine nickname** (up to 60 characters), shown only to you, on your own machines list;
 - a consent tick to show your display name, GitHub handle and aggregate usage on the public leaderboard.
 
+Later, on the page, you can add your X handle and LinkedIn link under **Your links**, so people know who you are. You type your X handle (`@name`, `name` or an x.com link) and paste your linkedin.com/in/ link. There is no X or LinkedIn sign-in: the server keeps only what you type, as your **X handle** and the part of your LinkedIn link after `/in/`. Both show as icons on your leaderboard row and profile, titled "Added by" your name, and **Disconnect** clears them at once.
+
 From GitHub the server keeps your **numeric GitHub user id** and your **public handle** (login). The sign-in requests no OAuth scopes, so it gets only your public profile. It does not store your email, avatar or the GitHub access token: the token is used once to read your public profile and is then discarded.
 
 ### 2. Usage upload (every 15 minutes)
@@ -109,7 +111,7 @@ Plain `GET` requests with no body for `release.json` and `release.sig`, and, onl
 
 ### What the server keeps, and who sees it
 
-This part you cannot check from the connector code, because it runs on our server. Per member: GitHub numeric id, handle, display name and whether you chose to hide your name. Per machine: the installation UUID, a SHA-256 hash of the credential (not the credential itself), your nickname, the time and error code of the last sync, the coverage dates, the partial flag, the connector version, a SHA-256 fingerprint of the uploaded rows (used to spot two machines uploading the same history) and the usage rows. Diagnostics are checked on upload and not stored. As with any website, our host sees the IP address of each request; pairing requests are rate limited using a keyed hash of that address, kept until the rate window expires.
+This part you cannot check from the connector code, because it runs on our server. Per member: GitHub numeric id, handle, display name and whether you chose to hide your name, plus the X handle and LinkedIn `/in/` id you typed in, if any. Per machine: the installation UUID, a SHA-256 hash of the credential (not the credential itself), your nickname, the time and error code of the last sync, the coverage dates, the partial flag, the connector version, a SHA-256 fingerprint of the uploaded rows (used to spot two machines uploading the same history) and the usage rows. Diagnostics are checked on upload and not stored. As with any website, our host sees the IP address of each request; pairing requests are rate limited using a keyed hash of that address, kept until the rate window expires.
 
 Anyone can see your display name and handle (unless you hide your name), your Claude, Codex and total tokens, your rank and the first day of your history, plus aggregate statistics across all members. Signed-in members, and visitors who unlock the full report with their email, also see a per-member breakdown: total, last 30 days, Claude and Codex, the fresh input, cached and output split, and the number of active days. Your machine nicknames, per-model rows and daily history are shown only to you.
 
