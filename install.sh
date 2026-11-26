@@ -15,7 +15,7 @@
 #   3. Checks each file against the fingerprint published in release.json, so a broken or
 #      altered download never runs.
 #   4. Copies them into a folder of their own and starts sync.mjs, which asks you to
-#      approve this machine with GitHub.
+#      approve this machine with the same Google or GitHub account you joined with.
 #
 # It never asks for a password, never uses sudo and installs nothing else.
 # To remove Token Club, run the same command with --uninstall on the end.
